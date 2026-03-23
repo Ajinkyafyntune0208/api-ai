@@ -16,7 +16,7 @@ services:
 
   nginx:
     build:
-      context: .
+      context: ./docker/nginx
       dockerfile: docker/nginx/Dockerfile
     container_name: laravel_nginx
     restart: always

@@ -11,13 +11,14 @@ WORKDIR /var/www
 
 COPY . .
 
+# create env first
+RUN cp .env.example .env
+
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
-RUN cp .env.example .env
 RUN php artisan key:generate
 
 RUN chown -R www-data:www-data /var/www
-RUN chmod -R 775 /var/www/storage
-RUN chmod -R 775 /var/www/bootstrap/cache
+RUN chmod -R 775 storage bootstrap/cache
 
 CMD ["php-fpm"]

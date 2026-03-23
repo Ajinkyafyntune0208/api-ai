@@ -18,6 +18,8 @@ services:
     restart: always
     ports:
       - "80:80"
+    volumes:
+      - .:/var/www
     depends_on:
       - app
     networks:

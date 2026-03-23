@@ -17,7 +17,7 @@ services:
   nginx:
     build:
       context: ./docker/nginx
-      dockerfile: docker/nginx/Dockerfile
+      dockerfile: Dockerfile
     container_name: laravel_nginx
     restart: always
     ports:

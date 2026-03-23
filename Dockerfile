@@ -20,6 +20,7 @@ COPY . .
 RUN composer install --no-interaction --prefer-dist --optimize-autoloader --no-scripts
 
 RUN cp .env.example .env
+
 RUN php artisan key:generate
 
 CMD ["php-fpm"]

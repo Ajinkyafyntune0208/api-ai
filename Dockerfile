@@ -14,7 +14,7 @@ COPY . .
 # create env first
 RUN cp .env.example .env
 
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader --no-scripts
 
 RUN php artisan key:generate
 

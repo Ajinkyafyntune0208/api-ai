@@ -13,14 +13,15 @@ services:
       - laravel
 
   nginx:
-    image: nginx:latest
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile
     container_name: laravel_nginx
     restart: always
     ports:
       - "80:80"
     volumes:
       - .:/var/www
-      - ./docker/nginx:/etc/nginx/conf.d
     depends_on:
       - app
     networks:

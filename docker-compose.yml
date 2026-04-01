@@ -11,14 +11,14 @@ services:
       - laravel
 
   nginx:
-    build:
-      context: ./docker/nginx
+    image: nginx:latest
     container_name: laravel_nginx
     restart: always
     ports:
       - "80:80"
     volumes:
-      - .:/var/www
+      - ./public:/var/www/public   # ✅ ONLY public folder
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - app
     networks:

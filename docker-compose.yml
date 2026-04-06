@@ -7,19 +7,19 @@ services:
     container_name: laravel_app
     restart: always
     working_dir: /var/www
+    volumes:
+      - .:/var/www
     networks:
       - laravel
 
   nginx:
-    build:
-      context: ./docker/nginx
-      dockerfile: Dockerfile
+    image: nginx:latest
     container_name: laravel_nginx
     restart: always
     ports:
       - "80:80"
     volumes:
-      - .:/var/www
+      - .:/var/www   # ✅ THIS IS CRITICAL
     depends_on:
       - app
     networks:

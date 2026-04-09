@@ -11,7 +11,8 @@ services:
       - laravel
 
   nginx:
-    image: nginx:latest
+    build:
+      context: ./docker/nginx   # 👈 IMPORTANT
     container_name: laravel_nginx
     restart: always
     ports:
